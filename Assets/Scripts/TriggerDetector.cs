@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TriggerDetector : MonoBehaviour
 {
-    public GameObject interactionUI; // ÍÏ×§UI¶ÔÏóµ½Õâ¸ö×Ö¶Î
+    public GameObject interactionUI; // æ‹–æ‹½UIå¯¹è±¡åˆ°è¿™ä¸ªå­—æ®µ
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // È·±£Ö÷½ÇÓĞ"Player"±êÇ©
+        if (other.CompareTag("Player")) // ç¡®ä¿ä¸»è§’æœ‰"Player"æ ‡ç­¾
         {
             interactionUI.SetActive(true);
         }
@@ -25,8 +25,8 @@ public class TriggerDetector : MonoBehaviour
     {
         if (interactionUI.activeSelf && Input.GetKeyDown(KeyCode.F))
         {
-            // Ö´ĞĞ½»»¥Âß¼­
-            Debug.Log("Óë¶ÔÏó½»»¥");
+            // æ‰§è¡Œäº¤äº’é€»è¾‘
+            Debug.Log("ä¸å¯¹è±¡äº¤äº’");
         }
     }
 }

@@ -993,6 +993,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: '@DialogueUGUI'
       objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: ea4f45f1433c2404197edc445210b679, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: ea4f45f1433c2404197edc445210b679, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: ea4f45f1433c2404197edc445210b679, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: ea4f45f1433c2404197edc445210b679, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: ea4f45f1433c2404197edc445210b679, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 22400000, guid: ea4f45f1433c2404197edc445210b679, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 96
@@ -1004,6 +1024,22 @@ PrefabInstance:
     - target: {fileID: 22400002, guid: ea4f45f1433c2404197edc445210b679, type: 3}
       propertyPath: m_SizeDelta.y
       value: 208.7958
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400008, guid: ea4f45f1433c2404197edc445210b679, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -197.0201
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400008, guid: ea4f45f1433c2404197edc445210b679, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 130.922
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400008, guid: ea4f45f1433c2404197edc445210b679, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 80.653076
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400008, guid: ea4f45f1433c2404197edc445210b679, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 12.755005
       objectReference: {fileID: 0}
     - target: {fileID: 22400010, guid: ea4f45f1433c2404197edc445210b679, type: 3}
       propertyPath: m_Pivot.x

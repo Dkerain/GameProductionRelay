@@ -7,22 +7,22 @@ using UnityEngine.UI;
 public class Interactable : MonoBehaviour
 {
     [Header("UI Settings")]
-    public GameObject interactionUI; // ÍÏÈëUI¶ÔÏó£¨×îºÃÊÇCanvasÏÂµÄUIÔªËØ£©
-    public Vector3 worldOffset = new Vector3(0, 1f, 0); // ÊÀ½ç×ø±êÆ«ÒÆ£¬¿ØÖÆUIÔÚÎïÌåÉÏ·½µÄÎ»ÖÃ
+    public GameObject interactionUI; // æ‹–å…¥UIå¯¹è±¡ï¼ˆæœ€å¥½æ˜¯Canvasä¸‹çš„UIå…ƒç´ ï¼‰
+    public Vector3 worldOffset = new Vector3(0, 1f, 0); // ä¸–ç•Œåæ ‡åç§»ï¼Œæ§åˆ¶UIåœ¨ç‰©ä½“ä¸Šæ–¹çš„ä½ç½®
 
     [Header("Interaction Settings")]
-    public KeyCode interactKey = KeyCode.F; // ½»»¥°´¼ü
-    public bool showUIOnlyWhenNear = true; // ÊÇ·ñÖ»ÔÚ¿¿½üÊ±ÏÔÊ¾UI
+    public KeyCode interactKey = KeyCode.F; // äº¤äº’æŒ‰é”®
+    public bool showUIOnlyWhenNear = true; // æ˜¯å¦åªåœ¨é è¿‘æ—¶æ˜¾ç¤ºUI
 
     private Camera mainCamera;
     private RectTransform uiRectTransform;
     private bool isPlayerInRange = false;
 
-    public DialogueTreeController dialogueTree;//ĞÂ½¨¶Ô»°Ê÷
+    public DialogueTreeController dialogueTree;//æ–°å»ºå¯¹è¯æ ‘
 
     void Start()
     {
-        // ³õÊ¼»¯×é¼ş
+        // åˆå§‹åŒ–ç»„ä»¶
         mainCamera = Camera.main;
         if (interactionUI != null)
         {
@@ -31,19 +31,19 @@ public class Interactable : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Î´·ÖÅäUI¶ÔÏó£¡", this);
+            Debug.LogError("æœªåˆ†é…UIå¯¹è±¡ï¼", this);
         }
     }
 
     void Update()
     {
-        // Èç¹ûUI´¦ÓÚ¼¤»î×´Ì¬£¬¸üĞÂÆäÎ»ÖÃ
+        // å¦‚æœUIå¤„äºæ¿€æ´»çŠ¶æ€ï¼Œæ›´æ–°å…¶ä½ç½®
         if (interactionUI != null && interactionUI.activeSelf)
         {
             UpdateUIPosition();
         }
 
-        // ¼ì²â½»»¥ÊäÈë
+        // æ£€æµ‹äº¤äº’è¾“å…¥
         if (isPlayerInRange && Input.GetKeyDown(interactKey))
         {
             OnInteract();
@@ -52,11 +52,11 @@ public class Interactable : MonoBehaviour
 
     void UpdateUIPosition()
     {
-        // ½«ÎïÌåÊÀ½ç×ø±ê×ª»»ÎªÆÁÄ»×ø±ê
+        // å°†ç‰©ä½“ä¸–ç•Œåæ ‡è½¬æ¢ä¸ºå±å¹•åæ ‡
         Vector3 worldPosition = transform.position + worldOffset;
         Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
 
-        // ¸üĞÂUIÎ»ÖÃ
+        // æ›´æ–°UIä½ç½®
         uiRectTransform.position = screenPosition;
     }
 
@@ -84,21 +84,21 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    // ½»»¥Âß¼­£¨¿ÉÖØĞ´£©
+    // äº¤äº’é€»è¾‘ï¼ˆå¯é‡å†™ï¼‰
     protected virtual void OnInteract()
     {
-        Debug.Log("Óë " + gameObject.name + " ½»»¥");
-        // ÔÚÕâÀïÌí¼Ó¾ßÌå½»»¥Âß¼­
-        Destroy(gameObject); // Á¢¼´Ïú»Ù
-        // Èç¹ûÓĞ¶ÀÁ¢UI£¬Ò²Ïú»Ù
+        Debug.Log("ä¸ " + gameObject.name + " äº¤äº’");
+        // åœ¨è¿™é‡Œæ·»åŠ å…·ä½“äº¤äº’é€»è¾‘
+        Destroy(gameObject); // ç«‹å³é”€æ¯
+        // å¦‚æœæœ‰ç‹¬ç«‹UIï¼Œä¹Ÿé”€æ¯
         if (interactionUI != null)
         {
             Destroy(interactionUI);
         }
-        dialogueTree.StartDialogue();//¿ªÆô¶Ô»°Ê÷µÄ½Å±¾
+        dialogueTree.StartDialogue();//å¼€å¯å¯¹è¯æ ‘çš„è„šæœ¬
     }
 
-    // ÔÚSceneÊÓÍ¼ÖĞ¿ÉÊÓ»¯´¥·¢·¶Î§
+    // åœ¨Sceneè§†å›¾ä¸­å¯è§†åŒ–è§¦å‘èŒƒå›´
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;

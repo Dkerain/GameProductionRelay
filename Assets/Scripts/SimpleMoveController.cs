@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SimpleMoveController : MonoBehaviour
 {
-    public float moveSpeed = 5f;            // Ä¬ÈÏÒÆ¶¯ËÙ¶È
-    public float sprintMultiplier = 2f;     // ¼ÓËÙ±¶ÂÊ£¨°´×¡ShiftÊ±£©
-    public float rotateSpeed = 90f;         // Ã¿ÃëĞı×ª½Ç¶È£¨¶È£©
+    public float moveSpeed = 5f;            // é»˜è®¤ç§»åŠ¨é€Ÿåº¦
+    public float sprintMultiplier = 2f;     // åŠ é€Ÿå€ç‡ï¼ˆæŒ‰ä½Shiftæ—¶ï¼‰
+    public float rotateSpeed = 90f;         // æ¯ç§’æ—‹è½¬è§’åº¦ï¼ˆåº¦ï¼‰
 
     void Update()
     {
@@ -14,7 +14,7 @@ public class SimpleMoveController : MonoBehaviour
     }
 
     /// <summary>
-    /// ´¦Àí WASD ÒÆ¶¯
+    /// å¤„ç† WASD ç§»åŠ¨
     /// </summary>
     void HandleMovement()
     {
@@ -29,7 +29,7 @@ public class SimpleMoveController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             moveDirection += transform.right;
 
-        // Shift ¼ÓËÙ
+        // Shift åŠ é€Ÿ
         float currentSpeed = moveSpeed;
         if (Input.GetKey(KeyCode.LeftShift))
             currentSpeed *= sprintMultiplier;
