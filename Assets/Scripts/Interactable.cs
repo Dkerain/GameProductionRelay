@@ -66,7 +66,7 @@ public class Interactable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            ObjectTouched = gameObject.name;
+            ObjectTouched = gameObject.name;//记录交互的物品
             if (showUIOnlyWhenNear && interactionUI != null)
             {
                 interactionUI.SetActive(true);
@@ -93,11 +93,14 @@ public class Interactable : MonoBehaviour
         Debug.Log("与 " + gameObject.name + " 交互");
         // 在这里添加具体交互逻辑
         Destroy(gameObject); // 立即销毁
-        // 如果有独立UI，也销毁
-        if (interactionUI != null)
-        {
-            Destroy(interactionUI);
-        }
+        // 如果有独立UI，也销毁（弃用）
+        //if (interactionUI != null)
+        //{
+        //    Destroy(interactionUI);
+        //}
+        //不懂为啥要销毁，销毁了其他物体就没有交互UI了，但是以免这个设计有大用，先留着
+        interactionUI.SetActive(false);//替代销毁的，改成停用
+
         dialogueTree.StartDialogue();//开启对话树的脚本
     }
 
