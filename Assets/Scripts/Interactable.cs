@@ -17,6 +17,7 @@ public class Interactable : MonoBehaviour
     private Camera mainCamera;
     private RectTransform uiRectTransform;
     private bool isPlayerInRange = false;
+    private string ObjectTouched;
 
     public DialogueTreeController dialogueTree;//新建对话树
 
@@ -38,7 +39,7 @@ public class Interactable : MonoBehaviour
     void Update()
     {
         // 如果UI处于激活状态，更新其位置
-        if (interactionUI != null && interactionUI.activeSelf)
+        if (interactionUI != null && interactionUI.activeSelf && ObjectTouched == gameObject.name)
         {
             UpdateUIPosition();
         }
@@ -55,7 +56,7 @@ public class Interactable : MonoBehaviour
         // 将物体世界坐标转换为屏幕坐标
         Vector3 worldPosition = transform.position + worldOffset;
         Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
-
+        
         // 更新UI位置
         uiRectTransform.position = screenPosition;
     }
@@ -65,6 +66,7 @@ public class Interactable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
+            ObjectTouched = gameObject.name;
             if (showUIOnlyWhenNear && interactionUI != null)
             {
                 interactionUI.SetActive(true);
@@ -77,6 +79,7 @@ public class Interactable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
+            ObjectTouched = null;
             if (interactionUI != null)
             {
                 interactionUI.SetActive(false);
