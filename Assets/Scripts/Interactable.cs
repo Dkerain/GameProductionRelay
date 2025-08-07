@@ -20,8 +20,10 @@ public class Interactable : MonoBehaviour
     private string ObjectTouched;
 
     public DialogueTreeController dialogueTree;//新建对话树
-
-    public enum InteractivityType {dialogue,unlock}//枚举交互类型，用于在不同交互场合使用
+    
+    public bool needKey;//加个钥匙系统，这里是是否需要，下面是要哪个编号的钥匙
+    public int keyNo;
+    public enum InteractivityType {dialogue,unlock,getKey}//枚举交互类型，用于在不同交互场合使用
 
     public InteractivityType Type;
     void Start()
@@ -93,25 +95,32 @@ public class Interactable : MonoBehaviour
     // 交互逻辑（可重写）
     protected virtual void OnInteract()
     {
-        Debug.Log("与 " + gameObject.name + " 交互");
-        // 在这里添加具体交互逻辑
-        Destroy(gameObject); // 立即销毁
-        // 如果有独立UI，也销毁（弃用）
-        //if (interactionUI != null)
-        //{
-        //    Destroy(interactionUI);
-        //}
-        //不懂为啥要销毁，销毁了其他物体就没有交互UI了，但是以免这个设计有大用，先留着
-        interactionUI.SetActive(false);//替代销毁的，改成停用
+        if ( !needKey || (needKey&& GameObject.Find("KeySystem").GetComponent<KeySystem>().key[keyNo]) ) {
+            Debug.Log("与 " + gameObject.name + " 交互");
+            // 在这里添加具体交互逻辑
+            Destroy(gameObject); // 立即销毁
+                                 // 如果有独立UI，也销毁（弃用）
+                                 //if (interactionUI != null)
+                                 //{
+                                 //    Destroy(interactionUI);
+                                 //}
+                                 //不懂UI为啥要销毁，销毁了其他物体就没有交互UI了，但是以免这个设计有大用，先留着
+            interactionUI.SetActive(false);//替代销毁的，改成停用
 
-        switch (Type) {
-            case InteractivityType.dialogue:
-                dialogueTree.StartDialogue();//开启对话树的脚本
-                break;
-            case InteractivityType.unlock:
-                GetComponent<UnlockThedoor>().Unlock();
-                break;
-                    }
+            switch (Type) {
+                case InteractivityType.dialogue:
+                    dialogueTree.StartDialogue();//开启对话树的脚本
+                    break;
+                case InteractivityType.unlock:
+                    GetComponent<UnlockThedoor>().Unlock();
+                    break;
+                case InteractivityType.getKey:
+                    GetComponent<GetKey>().Getkey();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     // 在Scene视图中可视化触发范围
