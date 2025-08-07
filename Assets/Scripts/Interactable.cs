@@ -21,6 +21,9 @@ public class Interactable : MonoBehaviour
 
     public DialogueTreeController dialogueTree;//新建对话树
 
+    public enum InteractivityType {dialogue,unlock}//枚举交互类型，用于在不同交互场合使用
+
+    public InteractivityType Type;
     void Start()
     {
         // 初始化组件
@@ -101,7 +104,14 @@ public class Interactable : MonoBehaviour
         //不懂为啥要销毁，销毁了其他物体就没有交互UI了，但是以免这个设计有大用，先留着
         interactionUI.SetActive(false);//替代销毁的，改成停用
 
-        dialogueTree.StartDialogue();//开启对话树的脚本
+        switch (Type) {
+            case InteractivityType.dialogue:
+                dialogueTree.StartDialogue();//开启对话树的脚本
+                break;
+            case InteractivityType.unlock:
+                GetComponent<UnlockThedoor>().Unlock();
+                break;
+                    }
     }
 
     // 在Scene视图中可视化触发范围
