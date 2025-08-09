@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 410907999}
   - component: {fileID: 410907998}
   - component: {fileID: 410907997}
-  - component: {fileID: 410907996}
+  - component: {fileID: 410908001}
   - component: {fileID: 410907995}
   m_Layer: 0
   m_Name: "\u7535\u8111 (getKey)"
@@ -157,26 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyNo: 0
---- !u!114 &410907996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410907994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46aa22ec65ac1e6458e4ef3583be27d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionUI: {fileID: 734026852}
-  worldOffset: {x: 0, y: 1, z: 0}
-  interactKey: 102
-  showUIOnlyWhenNear: 1
-  dialogueTree: {fileID: 1085171823}
-  needKey: 0
-  keyNo: 0
-  Type: 2
 --- !u!61 &410907997
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -305,6 +285,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &410908001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410907994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae513dae71ffe1d489cce069960c1710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionUI: {fileID: 734026852}
+  worldOffset: {x: 0, y: 1, z: 0}
+  interactKey: 102
+  showUIOnlyWhenNear: 1
+  keyNo: 0
 --- !u!1001 &426500281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,7 +732,7 @@ GameObject:
   - component: {fileID: 764711505}
   - component: {fileID: 764711504}
   - component: {fileID: 764711503}
-  - component: {fileID: 764711502}
+  - component: {fileID: 764711507}
   - component: {fileID: 764711501}
   m_Layer: 0
   m_Name: "\u7535\u8111(door/needKey)"
@@ -759,26 +756,6 @@ MonoBehaviour:
   Doors:
   - {fileID: 1450478536}
   - {fileID: 983345013}
---- !u!114 &764711502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764711500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46aa22ec65ac1e6458e4ef3583be27d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionUI: {fileID: 734026852}
-  worldOffset: {x: 0, y: 1, z: 0}
-  interactKey: 102
-  showUIOnlyWhenNear: 1
-  dialogueTree: {fileID: 1088911482}
-  needKey: 1
-  keyNo: 0
-  Type: 1
 --- !u!61 &764711503
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -907,6 +884,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &764711507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764711500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2340e4e665a68604fae748854949c314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionUI: {fileID: 734026852}
+  worldOffset: {x: 0, y: 1, z: 0}
+  interactKey: 102
+  showUIOnlyWhenNear: 1
 --- !u!1 &790763307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1478,7 @@ GameObject:
   - component: {fileID: 851632489}
   - component: {fileID: 851632490}
   - component: {fileID: 851632491}
-  - component: {fileID: 851632492}
+  - component: {fileID: 851632494}
   - component: {fileID: 851632493}
   m_Layer: 0
   m_Name: "\u7535\u8111(door1)"
@@ -1622,26 +1615,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.26506874, y: 0.22004053}
   m_EdgeRadius: 0
---- !u!114 &851632492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851632487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46aa22ec65ac1e6458e4ef3583be27d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionUI: {fileID: 734026852}
-  worldOffset: {x: 0, y: 1, z: 0}
-  interactKey: 102
-  showUIOnlyWhenNear: 1
-  dialogueTree: {fileID: 1088911482}
-  needKey: 0
-  keyNo: 0
-  Type: 1
 --- !u!114 &851632493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1657,6 +1630,22 @@ MonoBehaviour:
   Doors:
   - {fileID: 1450478536}
   - {fileID: 983345013}
+--- !u!114 &851632494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851632487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2340e4e665a68604fae748854949c314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionUI: {fileID: 734026852}
+  worldOffset: {x: 0, y: 1, z: 0}
+  interactKey: 102
+  showUIOnlyWhenNear: 1
 --- !u!1 &983345013
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,7 +2146,7 @@ GameObject:
   - component: {fileID: 1696750091}
   - component: {fileID: 1696750090}
   - component: {fileID: 1696750089}
-  - component: {fileID: 1696750088}
+  - component: {fileID: 1696750093}
   m_Layer: 0
   m_Name: "\u7535\u8111"
   m_TagString: Untagged
@@ -2165,26 +2154,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1696750088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696750087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46aa22ec65ac1e6458e4ef3583be27d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionUI: {fileID: 734026852}
-  worldOffset: {x: 0, y: 1, z: 0}
-  interactKey: 102
-  showUIOnlyWhenNear: 1
-  dialogueTree: {fileID: 1085171823}
-  needKey: 0
-  keyNo: 0
-  Type: 0
 --- !u!61 &1696750089
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2313,6 +2282,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1696750093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696750087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61348266bc06d564a825a4a859093d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionUI: {fileID: 734026852}
+  worldOffset: {x: 0, y: 1, z: 0}
+  interactKey: 102
+  showUIOnlyWhenNear: 1
+  dialogueTree: {fileID: 1085171823}
 --- !u!1 &1730678192
 GameObject:
   m_ObjectHideFlags: 0
