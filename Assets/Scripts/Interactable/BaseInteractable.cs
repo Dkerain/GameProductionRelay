@@ -10,28 +10,21 @@ using UnityEngine.UI;
 public abstract class BaseInteractable : MonoBehaviour
 {
     [Header("UI Settings")]
-    public GameObject interactionUI; // 拖入UI对象（最好是Canvas下的UI元素）
+    public InteractUI interactionUI; // 拖入UI对象（最好是Canvas下的UI元素）
     public Vector3 worldOffset = new Vector3(0, 1f, 0); // 世界坐标偏移，控制UI在物体上方的位置
 
     [Header("Interaction Settings")]
     public KeyCode interactKey = KeyCode.F; // 交互按键
-    public bool showUIOnlyWhenNear = true; // 是否只在靠近时显示UI
-
-    protected Camera mainCamera;
-    protected RectTransform uiRectTransform;
-    protected bool isPlayerInRange = false;
-    protected string ObjectTouched;
 
     void Start()
     {
         // 初始化组件
-        mainCamera = Camera.main;
-        if (interactionUI != null)
+        if (!interactionUI)
         {
-            uiRectTransform = interactionUI.GetComponent<RectTransform>();
-            interactionUI.SetActive(false);
+            interactionUI = Object.FindObjectOfType<InteractUI>();
+
         }
-        else
+        if (!interactionUI)
         {
             Debug.LogError("未分配UI对象！", this);
         }
@@ -40,46 +33,14 @@ public abstract class BaseInteractable : MonoBehaviour
     }
 
     protected virtual void OnStart() { }
-    protected virtual void OnUpdate() { }
     
     protected abstract void OnInteract();
-    
-    void Update()
-    {
-        // 如果UI处于激活状态，更新其位置
-        if (interactionUI != null && interactionUI.activeSelf && ObjectTouched == gameObject.name)
-        {
-            UpdateUIPosition();
-        }
-
-        // 检测交互输入
-        // 检测交互输入
-        if (isPlayerInRange && Input.GetKeyDown(interactKey))
-        {
-            Interact();
-        }
-    }
-
-    void UpdateUIPosition()
-    {
-        // 将物体世界坐标转换为屏幕坐标
-        Vector3 worldPosition = transform.position + worldOffset;
-        Vector3 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
-        
-        // 更新UI位置
-        uiRectTransform.position = screenPosition;
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerInRange = true;
-            ObjectTouched = gameObject.name;//记录交互的物品
-            if (showUIOnlyWhenNear && interactionUI != null)
-            {
-                interactionUI.SetActive(true);
-            }
+            interactionUI.AddInteract(this);
         }
     }
 
@@ -87,16 +48,11 @@ public abstract class BaseInteractable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerInRange = false;
-            ObjectTouched = null;
-            if (interactionUI != null)
-            {
-                interactionUI.SetActive(false);
-            }
+            interactionUI.RemoveInteract(this);
         }
     }
 
-    private void Interact()
+    public void Interact()
     {
         Debug.Log("与 " + gameObject.name + " 交互");
         OnInteract();

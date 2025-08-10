@@ -15,7 +15,6 @@ public class DialogueInteractable : BaseInteractable
         if (destroyOnEnd)
         {
             Destroy(gameObject); // 立即销毁
-            interactionUI.SetActive(false);//替代销毁的，改成停用
         }
     }
 }

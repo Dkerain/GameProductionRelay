@@ -12,7 +12,6 @@ public class KeyInteractable : BaseInteractable
         {
             GetComponent<GetKey>().Getkey();
             Destroy(gameObject); // 立即销毁
-            interactionUI.SetActive(false);//替代销毁的，改成停用
         }
     }
 }
