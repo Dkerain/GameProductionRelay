@@ -16,6 +16,7 @@ namespace LearnBT
             {
                 var player = GameObject.FindWithTag("Player");
                 bindingObject.DoTransmit(player);
+                EndAction(true);
             }
         }
     }
