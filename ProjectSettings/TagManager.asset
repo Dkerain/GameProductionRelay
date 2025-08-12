@@ -14,8 +14,8 @@ TagManager:
   - Character
   - Map
   - Annotation
-  - 
-  - 
+  - Targets
+  - Obstacles
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Wall
     uniqueID: 1701970709
+    locked: 0
+  - name: Light Area
+    uniqueID: 1959916073
     locked: 0
