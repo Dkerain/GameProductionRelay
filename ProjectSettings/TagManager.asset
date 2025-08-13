@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -55,6 +56,9 @@ TagManager:
     locked: 0
   - name: Wall
     uniqueID: 1701970709
+    locked: 0
+  - name: Coin
+    uniqueID: 1581092493
     locked: 0
   - name: Light Area
     uniqueID: 1959916073
