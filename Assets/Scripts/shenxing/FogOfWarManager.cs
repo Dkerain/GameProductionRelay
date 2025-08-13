@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 /// <summary>
 /// 战争迷雾（Fog of War）使用说明：
@@ -27,8 +28,39 @@ using UnityEngine;
 
 public class FogOfWarManager : MonoBehaviour
 {
+    [SerializeField] private GameObject grid;
+    [SerializeField] private Material darkAreaMaterial;
+    
     private void Start()
     {
         GridDuplicator.Instance.DuplicateGrid();
+    }
+
+    /// <summary>
+    /// 将地图变暗
+    /// </summary>
+    public void TurnOffTheLight()
+    {
+        if (darkAreaMaterial == null)
+        {
+            Debug.LogError("Dark Area Material未找到，请确保已放置在Resources/Materials目录下。");
+        }
+
+        if (grid == null)
+        {
+            Debug.LogError("Grid对象未设置，请在Inspector中设置。");
+        }
+        
+        // 遍历Grid下的所有一级子物体，获取TilemapRenderer组件
+        foreach (Transform child in grid.transform)
+        {
+            TilemapRenderer tilemapRenderer = child.GetComponent<TilemapRenderer>();
+            if (tilemapRenderer != null)
+            {
+                // 将Tilemap的Material设置为Dark Area Material
+                tilemapRenderer.material = darkAreaMaterial;
+            }
+        }
+
     }
 }

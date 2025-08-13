@@ -6,12 +6,11 @@ using UnityEngine;
 namespace LearnBT
 {
     [Category("CustomAction")]
-    public class ReStartMoving : ActionTask
+    public class ShowCoinAmountUI : ActionTask
     {
         protected override void OnExecute()
         {
-            base.OnExecute();
-            GameObject.FindWithTag("Player").GetComponent<SimpleMoveController>().enabled = true;
+            PacManManager.Instance.ShowCoinAmountUI();
             EndAction(true);
         }
     }

@@ -3,12 +3,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// 吃豆人管理器
+/// 吃完所有金币后的具体逻辑还没有写，目前只是有一个文字的提示
+/// </summary>
 public class PacManManager : MonoBehaviour
 {
     public static PacManManager Instance;
     
     [Header("UI Settings")]
     public TextMeshProUGUI coinCounterText;
+
+    [Header("Coins")]
+    [SerializeField] private GameObject coins;
     
     private int totalCoins;
     private int collectedCoins;
@@ -29,6 +36,7 @@ public class PacManManager : MonoBehaviour
     {
         FindAllCoins();
         UpdateCoinUI();
+        HideCoins();
     }
 
     // 场景初始化时查找所有金币
@@ -58,6 +66,46 @@ public class PacManManager : MonoBehaviour
         if (coinCounterText != null)
         {
             coinCounterText.text = $"Coin: {collectedCoins}/{totalCoins}";
+        }
+    }
+    
+    // 显示金币数量UI
+    public void ShowCoinAmountUI()
+    {
+        if (coinCounterText != null)
+        {
+            coinCounterText.gameObject.SetActive(true);
+        }
+    }
+    
+    // 显示金币
+    public void ShowCoins()
+    {
+        if (coins == null)
+        {
+            Debug.LogError("Coins GameObject is not assigned in PacManManager.");
+            return;
+        }
+        
+        // 遍历coins的所有子物体，并启用它们
+        foreach (Transform coin in coins.transform)
+        {
+            coin.gameObject.SetActive(true);
+        }
+    }
+    
+    public void HideCoins()
+    {
+        if (coins == null)
+        {
+            Debug.LogError("Coins GameObject is not assigned in PacManManager.");
+            return;
+        }
+        
+        // 遍历coins的所有子物体，并禁用它们
+        foreach (Transform coin in coins.transform)
+        {
+            coin.gameObject.SetActive(false);
         }
     }
 }

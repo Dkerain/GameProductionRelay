@@ -66,7 +66,7 @@ public class FieldOfView : MonoBehaviour
             Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
             if (Vector2.Angle(transform.right, dirToTarget) < viewAngle / 2) // 这里的判断有问题，要用局部的
             {
-                Debug.Log("Target found: " + target.name);
+                // Debug.Log("Target found: " + target.name);
                 float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
                 if (!Physics2D.Raycast(transform.position, dirToTarget, distanceToTarget, obstacleMask))
                 {
@@ -78,7 +78,7 @@ public class FieldOfView : MonoBehaviour
         // 处理可见目标
         foreach (Transform visibleTarget in visibleTargets)
         {
-            Debug.Log("Visible Target: " + visibleTarget.name);
+            // Debug.Log("Visible Target: " + visibleTarget.name);
         }
     }
     

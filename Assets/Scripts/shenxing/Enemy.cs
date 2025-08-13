@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("敌人碰到玩家了！");
+            Debug.Log("怪物碰到玩家了！");
             // 这里可以添加敌人碰到玩家时的逻辑
         }
     }
