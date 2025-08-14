@@ -2,6 +2,7 @@ using NodeCanvas.Framework;
 using NodeCanvas.Tasks.Actions;
 using ParadoxNotion.Design;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace LearnBT
 {
@@ -11,7 +12,7 @@ namespace LearnBT
         protected override void OnExecute()
         {
             base.OnExecute();
-            GameObject.FindWithTag("Player").GetComponent<SimpleMoveController>().enabled = true;
+            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
             EndAction(true);
         }
     }
