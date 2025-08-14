@@ -12,6 +12,7 @@ namespace LearnBT
         protected override void OnExecute() //重写OnExecute方法
         {
             base.OnExecute();
+            GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
             EndAction(true);    //提供返回值
         }

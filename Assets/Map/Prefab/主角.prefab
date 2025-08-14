@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1902874969462174307}
   - component: {fileID: 3579215630058116250}
-  - component: {fileID: 3034375018796657654}
   - component: {fileID: 6348288060239396550}
   - component: {fileID: 7068474173001939553}
   m_Layer: 0
@@ -136,20 +135,6 @@ MonoBehaviour:
   _portrait: {fileID: 2800000, guid: 9ccfbfaa0b6db1c4ea5f4dd3c58c44dc, type: 3}
   _dialogueColor: {r: 1, g: 1, b: 1, a: 1}
   _dialogueOffset: {x: 0, y: 0, z: 0}
---- !u!114 &3034375018796657654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7095410627622339484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6a5d73e9ff55cd429a04cc10986ba3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  sprintMultiplier: 2
 --- !u!50 &6348288060239396550
 Rigidbody2D:
   serializedVersion: 4

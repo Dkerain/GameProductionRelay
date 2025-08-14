@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldOfView : MonoBehaviour
+public class FieldOfView1 : MonoBehaviour
 {
     public enum Direction { Right, Up, Left, Down }
     public Direction currentDirection = Direction.Right;
