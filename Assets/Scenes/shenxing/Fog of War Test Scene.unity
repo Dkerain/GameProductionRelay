@@ -5472,54 +5472,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &722737487 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7095410627622339484, guid: 7baee29753f386a4c95732d35566773a, type: 3}
-  m_PrefabInstance: {fileID: 1231828471}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &722737488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722737487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3b1c7cc32ebd240822597d0be4a366, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &722737493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1902874969462174307, guid: 7baee29753f386a4c95732d35566773a, type: 3}
   m_PrefabInstance: {fileID: 1231828471}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &722737494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722737487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b26085ab69cba64486de48d42307b51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewRadius: 5
-  viewAngle: 90
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 512
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  visibleTargets: []
-  meshResolution: 1
-  edgeResolveIterations: 4
-  edgeDstThreshold: 0.5
-  maskCutawayDst: 0.1
-  viewMeshFilter: {fileID: 1826856244}
 --- !u!1 &790763307
 GameObject:
   m_ObjectHideFlags: 0
@@ -9764,19 +9721,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1902874969462174307, guid: 7baee29753f386a4c95732d35566773a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.2632516
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1902874969462174307, guid: 7baee29753f386a4c95732d35566773a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1902874969462174307, guid: 7baee29753f386a4c95732d35566773a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1902874969462174307, guid: 7baee29753f386a4c95732d35566773a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.9647272
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1902874969462174307, guid: 7baee29753f386a4c95732d35566773a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9788,7 +9745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1902874969462174307, guid: 7baee29753f386a4c95732d35566773a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 149.474
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2278145039342606807, guid: 7baee29753f386a4c95732d35566773a, type: 3}
       propertyPath: m_Sprite
@@ -9812,13 +9769,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1902874969462174307, guid: 7baee29753f386a4c95732d35566773a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1826856246}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7095410627622339484, guid: 7baee29753f386a4c95732d35566773a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 722737488}
-    - targetCorrespondingSourceObject: {fileID: 7095410627622339484, guid: 7baee29753f386a4c95732d35566773a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 722737494}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7baee29753f386a4c95732d35566773a, type: 3}
 --- !u!1 &1498878515
 GameObject:
@@ -9849,6 +9800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b504019dc92e6c04f81b05a5dac75642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grid: {fileID: 0}
+  darkAreaMaterial: {fileID: 0}
 --- !u!4 &1498878517
 Transform:
   m_ObjectHideFlags: 0
