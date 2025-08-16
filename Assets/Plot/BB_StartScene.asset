@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4fa5caed5fb2b43b903ef7859c9bf9, type: 3}
   m_Name: BB_StartScene
   m_EditorClassIdentifier: 
-  _serializedBlackboard: '{"_variables":{"isInteractedWithComputer":{"_name":"isInteractedWithComputer","_id":"44c853bb-605c-4192-bc7e-facd95c69374","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+  _serializedBlackboard: '{"_variables":{"isInteractedWithComputer":{"_name":"isInteractedWithComputer","_id":"b3f0abf7-a763-4d66-8326-c14dd7cfa493","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _UID: 6814a896-a634-47fc-8332-56a72daf7efb

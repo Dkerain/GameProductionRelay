@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using NodeCanvas.Framework;
+using NodeCanvas.DialogueTrees;
 
 /// <summary>
 /// 吃豆人管理器
@@ -10,6 +12,10 @@ using TMPro;
 public class PacManManager : MonoBehaviour
 {
     public static PacManManager Instance;
+    public Blackboard GlobalBalckboard;
+    public DialogueTreeController dialogueTreeController;
+
+
     
     [Header("UI Settings")]
     public TextMeshProUGUI coinCounterText;
@@ -57,6 +63,14 @@ public class PacManManager : MonoBehaviour
         {
             Debug.Log("所有金币收集完成！");
             // 这里可以添加游戏胜利逻辑
+            GlobalBalckboard.SetVariableValue("OverTheGame", true);
+            GlobalBalckboard.SetVariableValue("WinTheGame", true);
+            dialogueTreeController.StartDialogue();
+            // 找到名字为EnemyManager的GameObject对应的EnemyManager脚本
+            EnemyManager enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+            enemyManager.DestroyAllEnemies();
+            Debug.Log("Enemies die");
+
         }
     }
 
