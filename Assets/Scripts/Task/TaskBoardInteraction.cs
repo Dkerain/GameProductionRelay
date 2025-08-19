@@ -1,6 +1,5 @@
 using NodeCanvas.DialogueTrees;
 using UnityEngine;
-
 public class TaskBoardInteraction : MonoBehaviour
 {
     public DialogueTreeController dialogueTree;
@@ -12,10 +11,22 @@ public class TaskBoardInteraction : MonoBehaviour
     private bool isPlayerNearby;
     private Transform player;
 
+    public TaskBoardUI taskBoardUI;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         if (interactPrompt) interactPrompt.SetActive(false);
+
+        // 如果没有直接引用，尝试查找
+        if (taskBoardUI == null)
+        {
+            taskBoardUI = FindObjectOfType<TaskBoardUI>();
+            if (taskBoardUI == null)
+            {
+                Debug.LogError("TaskBoardUI not found in scene!");
+            }
+        }
     }
 
     void Update()
@@ -42,12 +53,20 @@ public class TaskBoardInteraction : MonoBehaviour
             return;
         }
 
-        dialogueTree.StartDialogue(taskBoardActor);
+        dialogueTree.StartDialogue(taskBoardActor, OnDialogueFinished);
     }
-
+    private void OnDialogueFinished(bool success)
+    {
+        if (success && taskBoardUI != null)
+        {
+            // 对话完成后打开任务板
+            taskBoardUI.OpenTaskBoard();
+        }
+    }
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, interactionRadius);
     }
+
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 namespace NodeCanvas.Tasks.Actions
 {
     [Category("Task System")]
-    public class OpenTaskBoardAction : ActionTask
+    public class CloseTaskBoardAction : ActionTask
     {
         protected override void OnExecute()
         {
             if (TaskBoardUI.Instance != null)
             {
-                TaskBoardUI.Instance.OpenTaskBoard();
+                TaskBoardUI.Instance.CloseTaskBoard();
                 EndAction(true);
             }
             else

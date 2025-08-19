@@ -18,12 +18,16 @@ public struct TaskReward
 public class Task
 {
     // 任务标识符
-    [Header("Task Identification")]
+    [Header("任务基本信息")]
     public string taskId;
     public string taskTitle;
 
     [TextArea(1, 3)]
     public string taskDescription;
+    public override string ToString()
+    {
+        return $"Task '{taskTitle}' (ID: {taskId}) - Type: {taskObjectiveType}";
+    }
 
     // 任务目标配置
     [Header("Task Objective")]
