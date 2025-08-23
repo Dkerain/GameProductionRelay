@@ -22,6 +22,8 @@ MonoBehaviour:
     interacted door-2":{"_name":"Have interacted door-2","_id":"33817be6-321c-4052-98e7-fd8316cf6c16","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Have
     interacted door-3":{"_name":"Have interacted door-3","_id":"3499e94b-5af2-4445-82a7-a8010be88a93","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Can
+    Start FinalGame":{"_name":"Can Start FinalGame","_id":"0d83aa31-eaaa-47cf-8460-ea555b2843f1","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _UID: 6814a896-a634-47fc-8332-56a72daf7efb
