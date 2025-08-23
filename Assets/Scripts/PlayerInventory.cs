@@ -1,6 +1,9 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 给任务奖励用的
+/// </summary>
 public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory Instance { get; private set; }

@@ -1,8 +1,11 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 玩家相机出生点
+/// </summary>
 public class LevelController : MonoBehaviour
 {
     private void Start()
