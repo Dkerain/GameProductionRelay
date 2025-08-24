@@ -36,6 +36,7 @@ public class GM : MonoBehaviour
     public TextMeshProUGUI creditsText;
     public float scrollSpeed = 30f;
     public float creditsDuration = 10f;
+    public float ScrollY = 100f;
     public Button endGameButton;
 
     [Header("nodeCanvas")]
@@ -50,6 +51,8 @@ public class GM : MonoBehaviour
         else
             Destroy(gameObject);
 
+        if(firstStartPanel != null)
+            firstStartPanel.SetActive(true);
 
         if (startButton != null)
             startButton.onClick.AddListener(StartGame);
@@ -137,6 +140,7 @@ public class GM : MonoBehaviour
     public void GameOverShowMember()
     {
         gameOverMemberPanel.SetActive(true);
+        endGameButton.gameObject.SetActive(false);
         StartCoroutine(ScrollCredits());
     }
 
@@ -144,7 +148,7 @@ public class GM : MonoBehaviour
     {
         // 重置文本位置
         RectTransform textRect = creditsText.GetComponent<RectTransform>();
-        textRect.anchoredPosition = new Vector2(0, -Screen.height);
+        textRect.anchoredPosition = new Vector2(0, -Screen.height + ScrollY);
 
         // 开始滚动
         float timer = 0f;
@@ -167,6 +171,7 @@ public class GM : MonoBehaviour
     public void ExitHoleGame()
     {
         Application.Quit();
+        Debug.Log("退出整个游戏");
     }
 
     public void StartGameFirst()
