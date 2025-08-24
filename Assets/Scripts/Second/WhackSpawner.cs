@@ -1,5 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class WhackSpawner : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class WhackSpawner : MonoBehaviour
         if (!GM.Instance) return;
         if (!GM.Instance.enabled) return;
 
-        if (GM.Instance && !IsGameRunning()) return;
+        if (!GM.Instance.isGameRunning) return;
 
         timer += Time.deltaTime;
 
@@ -67,15 +68,25 @@ public class WhackSpawner : MonoBehaviour
                 GameObject go = Instantiate(character.prefab, spawnPoint.position, Quaternion.identity);
                 SetOrder(go, holeIndex);
 
-                // Destroy(go, characterLifetime); // 自动销毁
+                // 添加自动销毁，使用角色自身的AutoDestroy方法
+                Character charScript = go.GetComponent<Character>();
+                if (charScript != null)
+                {
+                    StartCoroutine(AutoDestroyCharacter(charScript, characterLifetime));
+                }
+                else
+                {
+                    Destroy(go, characterLifetime);
+                }
                 break; // 每次只生成一个
             }
         }
     }
 
-    private bool IsGameRunning()
+    private IEnumerator AutoDestroyCharacter(Character character, float delay)
     {
-        return GM.Instance != null && GM.Instance.enabled && Time.timeScale > 0;
+        yield return new WaitForSeconds(delay);
+        character.AutoDestroy();
     }
 
     private void SetOrder(GameObject go, int holeIndex)

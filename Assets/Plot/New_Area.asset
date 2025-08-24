@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4fa5caed5fb2b43b903ef7859c9bf9, type: 3}
   m_Name: New_Area
   m_EditorClassIdentifier: 
-  _serializedBlackboard: '{"_variables":{"have interacted":{"_name":"have interacted","_id":"21ee9691-d507-4719-af57-029a59b4f31c","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+  _serializedBlackboard: '{"_variables":{"have interacted Paper":{"_name":"have interacted
+    Paper","_id":"21ee9691-d507-4719-af57-029a59b4f31c","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"have
     talked":{"_name":"have talked","_id":"f7e62cb8-5b27-4990-a8c7-4eb9f9f45c31","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"haveGotFirstMission":{"_name":"haveGotFirstMission","_id":"f0643313-f659-470f-ad5c-13853717f45b","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
@@ -24,6 +25,20 @@ MonoBehaviour:
     interacted door-3":{"_name":"Have interacted door-3","_id":"3499e94b-5af2-4445-82a7-a8010be88a93","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Can
     Start FinalGame":{"_name":"Can Start FinalGame","_id":"0d83aa31-eaaa-47cf-8460-ea555b2843f1","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"have
+    Read Log-1":{"_name":"have Read Log-1","_id":"8a6e4c6b-a90b-4fc9-b78e-586dae22c0cf","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"have
+    Read Log-2":{"_name":"have Read Log-2","_id":"0f94591d-f72a-4e21-8f1d-44f59cf4d887","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"have
+    Read Log-3":{"_name":"have Read Log-3","_id":"8c3ee857-c0d8-4c55-ae8d-980af2fb0b66","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"have
+    interacted Paper1":{"_name":"have interacted Paper1","_id":"5eed6c0b-17ea-46cf-92bc-69e4b7b9c008","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"have
+    interacted Paper2":{"_name":"have interacted Paper2","_id":"1b439106-5273-40ac-9cd1-af99e2ae22c4","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"have
+    interacted Paper3":{"_name":"have interacted Paper3","_id":"04c32586-eddb-469d-8ba9-803a5b9e2572","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"have
+    interacted Paper4":{"_name":"have interacted Paper4","_id":"fe7a7b9b-0cb7-484c-88e9-97bd0f6743e4","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _UID: 6814a896-a634-47fc-8332-56a72daf7efb

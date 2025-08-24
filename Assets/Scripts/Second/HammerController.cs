@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 
 public interface IHittable
@@ -23,6 +23,8 @@ public class HammerController : MonoBehaviour
 
     void Update()
     {
+        if (!GM.Instance.isGameRunning) return;
+
         FollowMouse();
 
         if (Input.GetMouseButtonDown(0) && !isHitting)

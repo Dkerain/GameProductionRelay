@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using NodeCanvas.DialogueTrees;
@@ -32,13 +32,15 @@ public class Enemy : MonoBehaviour
         {
 
     
-                Debug.Log("怪物碰到玩家了！");
+            Debug.Log("怪物碰到玩家了！");
 
-            GlobalBlackboard.SetVariableValue("WinTheGame", false);
-            GlobalBlackboard.SetVariableValue("OverTheGame", true);
+            GlobalBlackboard.SetVariableValue("WinTheRunGame", false);
+            GlobalBlackboard.SetVariableValue("OverTheRunGame", true);
             // 找到名字为EnemyManager的GameObject对应的EnemyManager脚本
             EnemyManager enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+
             enemyManager.DestroyAllEnemies();
+            PacManManager.Instance.HideCoins();
             Debug.Log("Enemies die");
 
             treeController.StartDialogue();

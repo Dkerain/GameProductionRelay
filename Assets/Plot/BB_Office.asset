@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4fa5caed5fb2b43b903ef7859c9bf9, type: 3}
   m_Name: BB_Office
   m_EditorClassIdentifier: 
-  _serializedBlackboard: '{"_variables":{"prepareWater":{"_name":"prepareWater","_id":"21ee9691-d507-4719-af57-029a59b4f31c","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"prepareToilet":{"_name":"prepareToilet","_id":"f7e62cb8-5b27-4990-a8c7-4eb9f9f45c31","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+  _serializedBlackboard: '{"_variables":{"have Toilet":{"_name":"have Toilet","_id":"f7e62cb8-5b27-4990-a8c7-4eb9f9f45c31","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"DrinkWaterTime":{"_name":"DrinkWaterTime","_id":"43e809e3-8063-42cd-a743-014178c85e03","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _UID: 6814a896-a634-47fc-8332-56a72daf7efb

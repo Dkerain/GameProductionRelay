@@ -1,4 +1,4 @@
-// PacManManager.cs
+﻿// PacManManager.cs
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -15,16 +15,16 @@ public class PacManManager : MonoBehaviour
     public Blackboard GlobalBalckboard;
     public DialogueTreeController dialogueTreeController;
 
-
     
     [Header("UI Settings")]
     public TextMeshProUGUI coinCounterText;
+    public GameObject RunGamePanel;
 
     [Header("Coins")]
     [SerializeField] private GameObject coins;
     
-    private int totalCoins;
-    private int collectedCoins;
+    [SerializeField] private int totalCoins;
+    [SerializeField] public int collectedCoins;
 
     void Awake()
     {
@@ -63,12 +63,15 @@ public class PacManManager : MonoBehaviour
         {
             Debug.Log("所有金币收集完成！");
             // 这里可以添加游戏胜利逻辑
-            GlobalBalckboard.SetVariableValue("OverTheGame", true);
-            GlobalBalckboard.SetVariableValue("WinTheGame", true);
+            GlobalBalckboard.SetVariableValue("OverTheRunGame", true);
+            GlobalBalckboard.SetVariableValue("WinTheRunGame", true);
+
             dialogueTreeController.StartDialogue();
             // 找到名字为EnemyManager的GameObject对应的EnemyManager脚本
             EnemyManager enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
+
             enemyManager.DestroyAllEnemies();
+            HideCoins();
             Debug.Log("Enemies die");
 
         }
@@ -86,9 +89,9 @@ public class PacManManager : MonoBehaviour
     // 显示金币数量UI
     public void ShowCoinAmountUI()
     {
-        if (coinCounterText != null)
+        if (coinCounterText != null && RunGamePanel != null)
         {
-            coinCounterText.gameObject.SetActive(true);
+            RunGamePanel.SetActive(true);
         }
     }
     
@@ -120,6 +123,12 @@ public class PacManManager : MonoBehaviour
         foreach (Transform coin in coins.transform)
         {
             coin.gameObject.SetActive(false);
+        }
+
+        //关闭coinsUI
+        if (coinCounterText != null && RunGamePanel != null)
+        {
+            RunGamePanel.SetActive(false);
         }
     }
 }
