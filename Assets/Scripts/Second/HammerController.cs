@@ -18,8 +18,20 @@ public class HammerController : MonoBehaviour
     public Ease hitEase = Ease.OutQuad;
     public Ease returnEase = Ease.OutBack;
 
+    [Header("音效")] public AudioClip hitSound;
+    private AudioSource audioSource;
 
     private bool isHitting = false;
+
+    void Start()
+    {
+        // 添加或获取AudioSource组件
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     void Update()
     {
@@ -30,6 +42,7 @@ public class HammerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isHitting)
         {
             DoHitAnimation();
+            PlayHitSound();
         }
     }
 
@@ -61,5 +74,12 @@ public class HammerController : MonoBehaviour
                         isHitting = false;
                     });
             });
+    }
+    void PlayHitSound()
+    {
+        if (hitSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(hitSound);
+        }
     }
 }

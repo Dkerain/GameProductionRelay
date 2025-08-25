@@ -1,10 +1,23 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance;
     public GameObject Enemys; // 子物体为所有敌人
+
+    [Header("追逐音乐")] public AudioClip RunSound;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        // 添加或获取AudioSource组件
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     void Awake()
     {
@@ -29,6 +42,7 @@ public class EnemyManager : MonoBehaviour
             }
           
         }
+        audioSource.PlayOneShot(RunSound);
     }
 
     public void DestroyAllEnemies()
@@ -39,6 +53,7 @@ public class EnemyManager : MonoBehaviour
             GameObject enemy = Enemys.transform.GetChild(i).gameObject;
             Destroy(enemy);
         }
+        audioSource.Stop();
     }
 
     public void ShowEnemy()

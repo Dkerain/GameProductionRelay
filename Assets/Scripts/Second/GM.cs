@@ -38,11 +38,27 @@ public class GM : MonoBehaviour
     public float creditsDuration = 10f;
     public float ScrollY = 100f;
     public Button endGameButton;
+    [Header("尾声音乐")] public AudioClip FinalSound;
+    private AudioSource audioSource;
+
+    [Header("玩家控制")]
+    public PlayerMovement playerMovement; // 引用玩家移动脚本
+
 
     [Header("nodeCanvas")]
     public DialogueTreeController FinalTreeController;
     public DialogueTreeController FirstTreeController;
     public Blackboard globalBlackboard;
+
+    void Start()
+    {
+        // 添加或获取AudioSource组件
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     void Awake()
     {
@@ -126,6 +142,32 @@ public class GM : MonoBehaviour
     public void EnterHitGame()
     {
         startPanel.SetActive(true);
+        ForcePlayerFaceDown();
+    }
+    private void ForcePlayerFaceDown()
+    {
+        if (playerMovement != null)
+        {
+            // 获取玩家的Animator组件
+            Animator animator = playerMovement.GetComponent<Animator>();
+            if (animator != null)
+            {
+                // 设置动画参数，强制面向下方
+                animator.SetFloat("LastHorizontal", 0f);
+                animator.SetFloat("LastVertical", -1f);
+                animator.SetFloat("Horizontal", 0f);
+                animator.SetFloat("Vertical", -1f);
+
+                Debug.Log("强制玩家面向屏幕下方");
+            }
+
+            // 如果有FieldOfView组件，也更新方向
+            FieldOfView fieldOfView = playerMovement.GetComponent<FieldOfView>();
+            if (fieldOfView != null)
+            {
+                fieldOfView.currentDirection = FieldOfView.Direction.Down;
+            }
+        }
     }
 
     public void ExitHitGame() 
@@ -141,6 +183,7 @@ public class GM : MonoBehaviour
     {
         gameOverMemberPanel.SetActive(true);
         endGameButton.gameObject.SetActive(false);
+        audioSource.PlayOneShot(FinalSound);
         StartCoroutine(ScrollCredits());
     }
 
